@@ -41,15 +41,15 @@ int main() {
     at_quick_exit(quick_bar);
 
 #ifdef EXIT
-    exit(0);          // destroys only static		+ runs atexit routines 			+ exits normally
+    exit(0);          // destroys only static + runs atexit routines + exits normally
 #elseif QUICK_EXIT
-    quick_exit(0);    // doesn't destroy anything 	+ runs at_quick_exit routines 	+ exits normally
+    quick_exit(0);    // doesn't destroy anything + runs at_quick_exit routines + exits normally
 #elseif _EXIT
-    _Exit(0);         // doesn't destroy anything 	+ doesn't run anything 			+ exits normally
+    _Exit(0);         // doesn't destroy anything + doesn't run anything + exits normally
 #elseif ABORT
-    abort();          // doesn't destroy anything 	+ doesn't run anything 			+ exits abnormally
+    abort();          // doesn't destroy anything + doesn't run anything + exits abnormally
 #else
-    return 0;         // destroys everything 		+ runs atexit routines 			+ exits normally
+    return 0;         // destroys everything + runs atexit routines + exits normally
 #endif
 
 }
